@@ -41,3 +41,9 @@ Configuration profiles were assigned to a specific device group that the endpoin
 * `event viewer mdm error`
 * `dsregcmd status`
 * `mdm diagnostics export`
+
+<img width="1960" height="1146" alt="event-viewer-mdm-admin" src="https://github.com/user-attachments/assets/e5d17884-cb57-47fb-a746-068d6f8fc8e6" />
+<img width="1097" height="1097" alt="event-viewer-mdm-error" src="https://github.com/user-attachments/assets/5f8176b9-969c-4ac9-83a8-537ef1e9810a" />
+<img width="1102" height="1119" alt="dsregcmd-status" src="https://github.com/user-attachments/assets/e4540c7f-bc39-4379-b454-b5c55894dbbe" />
+<img width="1152" height="1152" alt="mdm-diagnostics-export" src="https://github.com/user-attachments/assets/cff66acf-8a25-47e0-a9b1-8808c69b42aa" />
+
