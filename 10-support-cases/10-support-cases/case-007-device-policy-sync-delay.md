@@ -31,15 +31,13 @@ The cloud-managed endpoint `intune-test-device` completed Windows automatic enro
 3. Verified that the profile status changed from Pending to Succeeded upon the next successful connection cycle.
 
 ## Customer update
-Alex Turner — your device is now receiving the configuration policies assigned to it. The delay was caused by a missing group assignment at the time of enrolment. No further action is required. Please contact IT support if you notice any further issues.
+Alex Turner: your device is now receiving the configuration policies assigned to it. The delay was caused by a missing group assignment at the time of enrolment. No further action is required. Please contact IT support if you notice any further issues.
 
 ## Root cause and prevention
 Configuration profiles were assigned to a specific device group that the endpoint did not belong to at the time of enrolment. For manual enrolments, group membership must be verified before closing the task. Moving forward, using dynamic device groups based on the enrollmentProfileName or deviceOwnership attribute will automate this process and prevent manual assignment errors.
 
 ## Screenshots
-## Screenshots
-<img src="" alt="Event Viewer MDM Admin log" />
-<img src="" alt="Event ID 404 error detail" />
-<img src="" alt="dsregcmd status output" />
-<img src="" alt="MDM diagnostics export folder" />
-
+* `event viewer mdm admin`
+* `event viewer mdm error`
+* `dsregcmd status`
+* `mdm diagnostics export`
