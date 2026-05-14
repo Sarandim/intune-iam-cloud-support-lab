@@ -1,7 +1,7 @@
 # Enterprise App SSO and SCIM Provisioning - Salesforce
 
 **Lab environment:** DalModernWorkplaceLab.onmicrosoft.com
-**Date:** 14 May 2026
+**Date:** 16 May 2026
 
 ---
 
