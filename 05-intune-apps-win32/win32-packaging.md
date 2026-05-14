@@ -1,7 +1,7 @@
 # Win32 App Packaging - IntuneWinAppUtil
 
 **Lab environment:** DalModernWorkplaceLab.onmicrosoft.com
-**Date:** 14 May 2026
+**Date:** 13 May 2026
 
 ---
 
