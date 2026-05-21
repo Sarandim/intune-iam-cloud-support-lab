@@ -1,13 +1,16 @@
 **Title:** Contractor account retaining privileged group membership after departure
 **Case:** 021
+**Ticket number:** INC0010002
 **Date:** 20 May 2026
 **Reported by:** Sarandim Da Silva
 **Affected user:** Alex Turner, alex.turner@DalModernWorkplaceLab.onmicrosoft.com
 **Affected CI:** alex-turner-account
+**CMDB field used:** Assigned to, sys_user table, ServiceNow CMDB
 **Priority:** P2 - Security risk identified, privileged access retained by departed contractor.
 **Urgency:** Normal
 **Impact:** A contractor who departed two weeks ago retains membership of a privileged group, representing an uncontrolled access path to corporate resources and a potential audit finding.
 **Assignment group:** IT Support - Identity and Access
+**Change record reference:** CHG raised for Leaver-Offboard-Employee-Lab lifecycle workflow deployment
 
 ## Summary
 
@@ -29,6 +32,8 @@ A routine access review identified that a contractor account retained privileged
 
 6. Confirmed the governance failure: no access review, no lifecycle workflow, and no manual offboarding checklist resulted in the account retaining privileged group membership beyond the contractor's engagement period.
 
+7. Looked up the affected user account in the ServiceNow CMDB under the sys_user table to confirm the account record and departure date fields, cross-referencing with the Entra account state.
+
 ## Resolution Steps
 
 1. Navigated to entra.microsoft.com, Identity, Users, selected alex.turner@DalModernWorkplaceLab.onmicrosoft.com. Clicked Edit properties and set account status to Disabled.
@@ -37,7 +42,9 @@ A routine access review identified that a contractor account retained privileged
 
 3. Confirmed the account was disabled and all group memberships relevant to privileged access were removed.
 
-4. Raised a problem record to address the underlying governance gap. Referenced the absence of an automated leaver workflow as the root cause requiring a permanent fix.
+4. Raised a change record for the Leaver-Offboard-Employee-Lab lifecycle workflow deployment to prevent recurrence.
+
+5. Updated ServiceNow incident INC0010002 with resolution note and closed the ticket.
 
 ## Root Cause
 
@@ -49,19 +56,15 @@ The Leaver-Offboard-Employee-Lab lifecycle workflow has been configured in Entra
 
 ## Customer Update
 
-This case was raised internally following a routine access review. The affected contractor account has been disabled and privileged group membership has been removed. A governance workflow has been implemented to prevent recurrence. No further action is required from the affected party.
+This case was raised internally following a routine access review. The affected contractor account has been disabled and privileged group membership has been removed. A governance workflow has been implemented to prevent recurrence. Incident INC0010002 is now closed. No further action is required from the affected party.
 
 ## Screenshots
 
 - pim-audit-trail.png
 <img width="1923" height="887" alt="pim-audit-trail" src="https://github.com/user-attachments/assets/9a396c29-760e-40cb-824b-d1b5422a0db4" />
 
-  
 - pim-access-review-created.png
 <img width="1903" height="805" alt="pim-access-review-created" src="https://github.com/user-attachments/assets/7d5390a6-1834-432b-b40b-ece940837878" />
 
-  
 - lifecycle-workflow-leaver-created.png
 <img width="1917" height="1033" alt="lifecycle-workflow-leaver-created" src="https://github.com/user-attachments/assets/1de86608-ee4c-4654-adc4-d62202dcbc2d" />
-
-  
