@@ -1,20 +1,18 @@
 # SIGNATURE CASE - End-to-End Access Investigation: User Cannot Access SharePoint
 
 **Type:** Incident
+**Ticket number:** INC0010004
 **Priority:** P2 - User fully blocked from corporate collaboration platform. Business productivity impact confirmed.
 **Impact:** Single user. Alex Turner unable to access SharePoint from intune-test-dev. All SharePoint-dependent workflows blocked.
 **Urgency:** High. SharePoint access required for active project work.
 **SLA:** Response target 2 hours. Resolution target 4 hours. Case within SLA at time of logging.
 **Affected CI:** intune-test-dev | Azure VM | West Europe | Corporate-owned | SharePoint Online
+**CMDB reference:** intune-test-dev maps to the cmdb_ci_computer table. Relevant fields for this investigation are Name, Assigned to, Operating System, Compliance, and Last discovered, per the Intune to CMDB field mapping documented in 18-itsm-servicenow.
 **Assignment group:** Identity and Access Operations
-
----
 
 ## Summary
 
 Alex Turner reported being unable to access SharePoint Online from intune-test-dev. The user was receiving an access denied error after authentication. A systematic end-to-end investigation was conducted covering Entra ID sign-in logs, Conditional Access evaluation, device compliance state, Intune assignment, licence assignment, group membership and SSO token validation. The root cause was identified at the Conditional Access layer where the device compliance state had lapsed due to a check-in delay following the VM being in a stopped state.
-
----
 
 ## Investigation
 
@@ -79,29 +77,21 @@ Triggered a manual MDM sync from the Intune device record. Monitored the complia
 
 **Finding:** Alex Turner was blocked from SharePoint by the Require compliant Windows 10/11 devices Conditional Access policy. The device was not genuinely non-compliant. The compliance state had become stale because intune-test-dev had been in a stopped state and had not completed a check-in cycle to refresh the compliance timestamp. A manual sync resolved the stale state and restored access.
 
----
-
 ## Resolution
 
 Manual MDM sync triggered from the Intune admin centre. Device compliance state refreshed to Compliant on completion of the sync cycle. Alex Turner confirmed successful access to SharePoint within 5 minutes of the sync completing. No policy changes were required. The device met all compliance requirements throughout the incident.
-
----
 
 ## Customer Update
 
 Alex Turner,
 
-Your access to SharePoint has been restored. The issue was caused by your device not having checked in with our management system recently, which caused the system to temporarily flag it as unverified. This has been corrected. Your device is confirmed as secure and meeting all requirements. No further action is required from you. Contact the IT support desk if you experience any further access issues.
-
----
+Your access to SharePoint has been restored. The issue was caused by your device not having checked in with our management system recently, which caused the system to temporarily flag it as unverified. This has been corrected. Your device is confirmed as secure and meeting all requirements. No further action is required from you. Incident INC0010004 is now closed. Contact the IT support desk if you experience any further access issues.
 
 ## Root Cause and Prevention
 
 **Root cause:** intune-test-dev had been in a stopped state in Azure. When restarted the device had not yet completed a check-in cycle with Intune to refresh the compliance timestamp. The Conditional Access policy evaluated the stale compliance state and blocked access as a precaution.
 
 **Prevention:** For devices that are regularly stopped and restarted, configure a compliance grace period in the compliance policy to allow a check-in window after device restart before blocking access. For Azure VMs used as managed endpoints, ensure the VM is started with sufficient lead time before the user requires access to allow the check-in cycle to complete. Where users report access blocks after device restart, trigger a manual sync as the first resolution step before investigating deeper.
-
----
 
 ## Tools Used in This Investigation
 
