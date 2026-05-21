@@ -1,20 +1,18 @@
 # Case 009 - Defender Risk Score Elevated, Device Blocked from Conditional Access
 
 **Type:** Incident
+**Ticket number:** INC0010003
 **Priority:** P2 - Active security threat confirmed on a managed corporate device. Single user blocked from all corporate resources. Elevated from P3 due to confirmed endpoint compromise requiring security investigation.
 **Impact:** Single user. intune-test-dev blocked from Conditional Access after Defender for Endpoint elevated the device risk score.
 **Urgency:** High. User cannot access corporate resources. Active security threat on endpoint requires investigation.
 **SLA:** Response target 2 hours. Resolution target 4 hours. Case within SLA at time of logging.
 **Affected CI:** intune-test-dev | Azure VM | West Europe | Corporate-owned
+**CMDB reference:** intune-test-dev maps to the cmdb_ci_computer table. Relevant fields for this investigation are Name, Operating System, and Compliance, with the Defender risk score represented as a security risk field populated by the endpoint security integration, per the Intune to CMDB field mapping documented in 18-itsm-servicenow.
 **Assignment group:** Endpoint Operations and Security Operations
-
----
 
 ## Summary
 
 Alex Turner reported being unable to access corporate resources from intune-test-dev. Investigation confirmed Microsoft Defender for Endpoint had detected a threat on the device and elevated the risk score. The Intune compliance policy was configured with a Defender risk score threshold of Medium, causing the device to be marked non-compliant. The Require compliant Windows 10/11 devices Conditional Access policy then blocked access to corporate resources automatically.
-
----
 
 ## Investigation
 
@@ -44,29 +42,21 @@ After threat remediation the Defender risk score returned to Clean. Intune re-ev
 
 **Finding:** Defender for Endpoint detected an active threat on intune-test-dev and elevated the risk score above the compliance threshold. The Intune and Conditional Access integration correctly blocked access to corporate resources automatically without manual intervention.
 
----
-
 ## Resolution
 
 Threat remediated on intune-test-dev following Defender recommended remediation steps. Device risk score returned to Clean. Compliance status restored to Compliant on next Intune check-in. Alex Turner confirmed successful access to corporate resources after compliance was restored.
-
----
 
 ## Customer Update
 
 Alex Turner,
 
-Your access to corporate resources was blocked automatically because a security threat was detected on your device. The threat has been investigated and removed. Your device has been confirmed as secure and your access has been restored. No further action is required from you. Contact the IT support desk immediately if you notice any unusual behaviour on your device.
-
----
+Your access to corporate resources was blocked automatically because a security threat was detected on your device. The threat has been investigated and removed. Your device has been confirmed as secure and your access has been restored. No further action is required from you. Incident INC0010003 is now closed. Contact the IT support desk immediately if you notice any unusual behaviour on your device.
 
 ## Root Cause and Prevention
 
 **Root cause:** A security threat was detected on intune-test-dev by Microsoft Defender for Endpoint. The Intune compliance policy risk score threshold correctly identified the device as non-compliant and Conditional Access correctly blocked access automatically.
 
 **Prevention:** The automatic block is the prevention mechanism working as designed. To reduce impact on users when legitimate threats occur, ensure the Defender remediation workflow is documented so support engineers can resolve alerts quickly. Consider configuring Defender automated investigation and remediation to resolve low and medium severity threats without manual intervention.
-
----
 
 ## Screenshots
 
@@ -75,5 +65,3 @@ Your access to corporate resources was blocked automatically because a security 
   
 - intune-defender-connection.png
 <img width="1659" height="571" alt="intune-defender-connection" src="https://github.com/user-attachments/assets/3873155b-c243-49b4-a624-33f74fbd572b" />
-
-  
