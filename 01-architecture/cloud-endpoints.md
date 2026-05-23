@@ -3,7 +3,6 @@
 **Lab environment:** DalModernWorkplaceLab.onmicrosoft.com
 **Date:** 14 May 2026
 **Note:** Architecture awareness document. Windows 365 and AVD require additional licensing and infrastructure not available in this lab. Content is based on Microsoft Learn documentation.
-
 ---
 
 ## Purpose
