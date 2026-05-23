@@ -2,7 +2,6 @@
 
 **Lab environment:** DalModernWorkplaceLab.onmicrosoft.com
 **Date:** 14 May 2026
-
 ---
 
 ## Purpose
