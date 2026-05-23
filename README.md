@@ -26,7 +26,7 @@ Identity and Access Microsoft Entra ID, users and groups, MFA, SSPR, RBAC, Condi
 
 Identity Governance Privileged Identity Management, just-in-time elevation, access reviews, lifecycle workflows for joiner mover and leaver, governance evidence matrix, break-glass account design
 
-Endpoint Management Microsoft Intune, Windows automatic MDM enrolment, Autopilot, compliance policies, configuration profiles, Wi-Fi and VPN profiles, Windows security baseline, update rings, Autopatch and hotpatching readiness, app protection policies for iOS BYOD
+Endpoint Management Microsoft Intune, Windows automatic MDM enrolment, Autopilot, compliance policies, configuration profiles, Wi-Fi and VPN profiles, Windows security baseline, update rings, Autopatch and hotpatching readiness, app protection policies for iOS BYOD, virtual endpoints with Windows 365 Cloud PC and Azure Virtual Desktop awareness and a managed PC, Cloud PC and AVD comparison
 
 Mixed Estate and Apple Apple MDM Push Certificate, macOS Company Portal enrolment, macOS compliance policy, macOS configuration profile, macOS app deployment, Apple Platform SSO awareness, Apple Business Manager and Automated Device Enrolment architecture
 
